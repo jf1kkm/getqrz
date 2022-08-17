@@ -1,2 +1,2 @@
-# qrz2jtlinker
-A program that provides qrz.com data services to JTLinker.
+# getqrz
+Add QRZ.com data to the QSO data multicast by JTDX and provide it to JTLinker.

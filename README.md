@@ -1,2 +1,2 @@
 # getqrz
-Add QRZ.com data to the QSO data multicast by JTDX and provide it to JTLinker.
+Add QRZ.com data to the ADIF QSO data multicast by JTDX and provide it to JTLinker.

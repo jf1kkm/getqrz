@@ -22,26 +22,26 @@ Open a terminal and run with<br>
 ## Settings
 Set the following parameters to getqrz.py
 
-- username
+- username<br>
   QRZ.com user name
 
-- pw
+- pw<br>
   QRZ.com password
 
-- filename`
+- filename<br>
   Path and file name "log.adi" specified in "File Path of log.adi (JTAlert) " in JTLinker Decoder settings.<br>
   if the Decoder setting is "Y:\user\", make it "Y:¥user\log.adi"
 
-- size_qth
+- size_qth<br>
   QTH digits of Turbo Hamlog
 
-- JTDX reporting settings
+- JTDX reporting settings<br>
   - Set 2nd UDP server to "224.0.0.1"
   - Set UDP port to "2333"
   - Check "Enable sending to secondary UDP server"
 
 
-- For test
+- For test<br>
   Setting "DEBUG_seq" to "1" will not write to the file.<br>
   Can be used for testing.
 

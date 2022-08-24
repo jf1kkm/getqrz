@@ -16,7 +16,7 @@ JTLinker reads the updated file and transfers the QSO information to the specifi
 Prepare a folder and extract adif.py, rcv_mc.py and getqrz.py
 
 ## Execution
-Open a terminal and run with
+Open a terminal and run with<br>
 % ./getqrz.py
 
 ## Settings
@@ -29,7 +29,7 @@ Set the following parameters to getqrz.py
   QRZ.com password
 
 - filename`
-  Path and file name "log.adi" specified in "File Path of log.adi (JTAlert) " in JTLinker Decoder settings.  
+  Path and file name "log.adi" specified in "File Path of log.adi (JTAlert) " in JTLinker Decoder settings.<br>
   if the Decoder setting is "Y:\user\", make it "Y:¥user\log.adi"
 
 - size_qth

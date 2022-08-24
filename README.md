@@ -16,7 +16,7 @@ JTLinker reads the updated file and transfers the QSO information to the specifi
 Prepare a folder and extract adif.py, rcv_mc.py and getqrz.py
 
 ## Execution
-Open a terminal and run with
+Open a terminal and run with  
 % ./getqrz.py
 
 ## Settings

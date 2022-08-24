@@ -40,21 +40,26 @@ Set the following parameters to getqrz.py
   - Set UDP port to "2333"
   - Check "Enable sending to secondary UDP server"
 
-`Please refer to the pictures below.`
+
+- For test
+  Setting "DEBUG_seq" to "1" will not write to the file.<br>
+  Can be used for testing.
+
+```Please refer to the pictures below.```
 ***
-`getqrz.py parameter settings`
+```getqrz.py parameter settings```
 
 ![](img/getqrz_setting.png)
 ***
-`JTLinker Decoder setting`
+```JTLinker Decoder setting```
 
 ![](img/jtlinker_setting_decoder_ed.png)
 ***
-`QTH digits setting of Turbo Hamlog`
+```QTH digits setting of Turbo Hamlog```
 
 ![](img/tbhamlog_setting_ed.png)
 ***
-`JTDX reporting settings`
+```JTDX reporting settings```
 
 ![](img/jtdx_setting_reporting_ed.png)
 ***

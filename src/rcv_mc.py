@@ -31,8 +31,9 @@ import adif
 
 
 multicast_group = '224.0.0.1' # same multicast address as JTDX to send
+PORT = 2333 # same as JTDX destination port number
+
 local_address = '127.0.0.1'
-PORT = 2333
 MAX_BUFFER = 4096
 
 #def main():

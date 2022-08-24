@@ -40,6 +40,7 @@ import xml.etree.ElementTree as ET
 import socket
 import re
 import rcv_mc
+import signal
 import sys
 import os.path
 
@@ -177,6 +178,12 @@ def main():
 	print(dat)
 
 	return
+
+def handler(signal, frame):
+	print('\nexit getqrz')
+	sys.exit(0)
+
+signal.signal(signal.SIGINT, handler)
 
 if __name__ == '__main__':
 

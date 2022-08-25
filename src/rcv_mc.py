@@ -63,7 +63,7 @@ def rcv_adif():
 		if 'GRIDSQUARE' in oqso.keys():
 			print("GRID:", oqso['GRIDSQUARE'])
 			grid = oqso['GRIDSQUARE']
-			txt = re.sub("<GRIDSQUARE:.>.*<", "<", txt)
+			txt = re.sub("<GRIDSQUARE:.>.{0,6}¥s<", "<", txt)
 			print("rcvout:\n", txt)
 		else:
 			print("NO GRID:")

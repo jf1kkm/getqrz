@@ -31,7 +31,7 @@ Set the following parameters to getqrz.py
 
 - filename<br>
 The path and file name of log.adi specified in the JTLinker Decoder setting "File path of log.adi (JTAlert)".<br>
-  if the Decoder setting is "Y:\user\", make it "Y:¥user\log.adi"
+  if the Decoder setting is "Y:\user\", make it "Y:\user\log.adi"
 
 - size_qth<br>
   QTH digits of Turbo Hamlog

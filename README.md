@@ -30,7 +30,7 @@ Set the following parameters to getqrz.py
   QRZ.com password
 
 - filename<br>
-  Path and file name "log.adi" specified in "File Path of log.adi (JTAlert) " in JTLinker Decoder settings.<br>
+The path and file name of log.adi specified in the JTLinker Decoder setting "File path of log.adi (JTAlert)".<br>
   if the Decoder setting is "Y:\user\", make it "Y:¥user\log.adi"
 
 - size_qth<br>

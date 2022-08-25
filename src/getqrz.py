@@ -135,21 +135,28 @@ def main():
 	lst_qth = re.split('[ ]',addr2)
 	cnt_qth = 0
 	len_qth = len(state) + len(country)
+	if len(state) > 0 and len(country) > 0:
+		len_qth += 1
 
 	for lq in reversed(lst_qth):
 		print("lq:", lq)
-		if re.match('(.*[0-9]{4}+.*|.*:+.*)', lq):
-			print("addr2 include number:", re.match('.*[0-9]{4}.*|.*:+.*', lq))
-			print("addr2:", lq)
-		else:
-			if (len(qth) + len(lq)) <= size_qth:
-				if cnt_qth:
-					qth = lq + ' ' + qth
+		if len(lq) > 0:
+			if re.match('(.*[0-9]{4}.*|.*:+.*)', lq):
+				print("addr2 include number:",
+					re.match('.*[0-9]{4}.*|.*:+.*', lq))
+				print("addr2:", lq)
+			else:
+				len_qth = len_qth + len(lq) + 1
+				if len_qth <= size_qth:
+					if cnt_qth:
+						qth = lq + ' ' + qth
+					else:
+						qth = lq
+						len_qth -= 1
 				else:
-					qth = lq
-			cnt_qth = cnt_qth + 1
-		if cnt_qth > 1:
-			break
+					break
+				cnt_qth += 1
+			print("cnt,qthlen,lqlen:", cnt_qth, ",", len_qth, ",", len(lq))
 
 	#generate QSO ADIF
 	dat = adifheader
@@ -175,6 +182,7 @@ def main():
 		fd = open(filename, 'w')
 		fd.write(dat)
 		fd.close()
+	print("==== output ADIF ====")
 	print(dat)
 
 	return

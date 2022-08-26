@@ -105,7 +105,6 @@ def main():
 
 	call = ""
 	fname = ""
-	ename = ""
 	name = ""
 	addr2 = ""
 	qth = ""
@@ -119,7 +118,7 @@ def main():
 		if child.tag == '{http://xmldata.qrz.com}fname':
 			fname = child.text
 		if child.tag == '{http://xmldata.qrz.com}name':
-			ename = child.text
+			name = child.text
 		if child.tag == '{http://xmldata.qrz.com}addr2':
 			addr2 = child.text
 		if child.tag == '{http://xmldata.qrz.com}qth':
@@ -161,15 +160,12 @@ def main():
 	#generate QSO ADIF
 	dat = adifheader
 	dat = dat + rpladif
-	if fname != "":
-		name = fname
-	if ename != "":
-		if len(name) > 0:
-			name = name + " " + ename
-		else:
-			name = ename
-	if len(name) > 0:
-		dat = dat + "<NAME:" + str(len(name)) + ">" + name + ' '
+	if fname != "" and name != "":
+		dat = dat + "<NAME:" + str((len(fname)+len(name)+1)) + ">"
+		dat = dat + fname + " " + name + " "
+	elif fname != "" or name != "":
+		dat = dat + "<NAME:" + str((len(fname)+len(name))) + ">"
+		dat = dat + fname + name + " "
 	if gridadif != "":
 		dat = dat + "<GRIDSQUARE:" + str(len(gridadif)) + ">" + gridadif + ' '
 	elif grid != "":

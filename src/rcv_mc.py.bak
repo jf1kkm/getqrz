@@ -47,21 +47,24 @@ def rcv_adif():
 		socket.inet_aton(multicast_group) + socket.inet_aton(local_address))
         
 		temp = sock.recv(MAX_BUFFER)
-		txt = str(temp, 'utf-8')
-		print(f"input ADIF:\n{txt}")
+		txt = str(temp)
+		txt = txt.replace("b'",'')
+		txt = txt.replace("<EOR>'",'<EOR>')
+		print("input ADIF:")
+		print(txt)
 
 		qsos = adif.read_from_string(txt)
-		print(f"\nQSOs:\n {qsos}\n")
+		print("QSOs:\n {}\n".format(qsos))
 
 		oqso = qsos[0]
 
 		sock.close()
 
 		if 'GRIDSQUARE' in oqso.keys():
+			print("GRID:", oqso['GRIDSQUARE'])
 			grid = oqso['GRIDSQUARE']
-			txt = re.sub("<GRIDSQUARE:.>.{0,6} <", "<", txt)
-			print(f"GRID:{grid}")
-			print(f"rcvout:\n{txt}\n")
+			txt = re.sub("<GRIDSQUARE:.>.{0,6}¥s<", "<", txt)
+			print("rcvout:\n", txt)
 		else:
 			print("NO GRID:")
 			grid = ""

@@ -80,7 +80,6 @@ def main():
 #	print(url)
 
 	req = urllib.request.Request(url)
-
 	with urllib.request.urlopen(req) as response:
 		xmls = response.read()
 
@@ -102,10 +101,11 @@ def main():
 		xmls = response.read()
 
 	root = ET.fromstring(xmls)
-	print("qrz:\n", xmls)
+	print(f"qrz:\n{str(xmls, 'utf-8')}")
 
 	call = ""
 	fname = ""
+	ename = ""
 	name = ""
 	addr2 = ""
 	qth = ""
@@ -119,7 +119,7 @@ def main():
 		if child.tag == '{http://xmldata.qrz.com}fname':
 			fname = child.text
 		if child.tag == '{http://xmldata.qrz.com}name':
-			name = child.text
+			ename = child.text
 		if child.tag == '{http://xmldata.qrz.com}addr2':
 			addr2 = child.text
 		if child.tag == '{http://xmldata.qrz.com}qth':
@@ -139,12 +139,12 @@ def main():
 		len_qth += 1
 
 	for lq in reversed(lst_qth):
-		print("lq:", lq)
+		print(f"lq:{lq}")
 		if len(lq) > 0:
 			if re.match('(.*[0-9]{4}.*|.*:+.*)', lq):
-				print("addr2 include number:",
-					re.match('.*[0-9]{4}.*|.*:+.*', lq))
-				print("addr2:", lq)
+				print(f"addr2 include number:",\
+					"{re.match('.*[0-9]{4}.*|.*:+.*', lq)}")
+				print(f"addr2:{lq}")
 			else:
 				len_qth = len_qth + len(lq) + 1
 				if len_qth <= size_qth:
@@ -156,14 +156,20 @@ def main():
 				else:
 					break
 				cnt_qth += 1
-			print("cnt,qthlen,lqlen:", cnt_qth, ",", len_qth, ",", len(lq))
+			print(f"cnt,qthlen,lqlen:{cnt_qth},{len_qth},{len(lq)}")
 
 	#generate QSO ADIF
 	dat = adifheader
 	dat = dat + rpladif
-	if fname != "" and name != "":
-		dat = dat + "<NAME:" + str((len(fname)+len(name)+1)) + ">"
-		dat = dat + fname + " " + name + " "
+	if fname != "":
+		name = fname
+	if ename != "":
+		if len(name) > 0:
+			name = name + " " + ename
+		else:
+			name = ename
+	if len(name) > 0:
+		dat = dat + "<NAME:" + str(len(name)) + ">" + name + ' '
 	if gridadif != "":
 		dat = dat + "<GRIDSQUARE:" + str(len(gridadif)) + ">" + gridadif + ' '
 	elif grid != "":
@@ -176,13 +182,13 @@ def main():
 		qth = qth + ' ' + country
 	if qth != "":
 		dat = dat + "<QTH:" + str(len(qth)) + ">" + qth + ' '
-		print("qth:", qth)
+		print(f"qth:{qth}")
 	dat = dat + "<EOR>\n"
 	if DEBUG_seq != 1:
 		fd = open(filename, 'w')
 		fd.write(dat)
 		fd.close()
-	print("==== output ADIF ====")
+	print("\n==== output ADIF ====")
 	print(dat)
 
 	return

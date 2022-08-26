@@ -3,7 +3,7 @@
 This program provides JTLinker with QSO information combining JTDX QSO data and QRZ.com data.<br>
 State and country will be listed in the QTH.
 
-Works with Python 3.5 and above.
+Works with Python 3.6 and above.
 
 ## Overview
 The following figure shows the overall view.

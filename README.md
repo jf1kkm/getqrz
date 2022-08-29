@@ -5,6 +5,8 @@ State and country will be listed in the QTH.
 
 Works with Python 3.6 and above.
 
+Special thanks to Andreas(DJ3EI), the developer of adif-io.
+
 ## Overview
 The following figure shows the overall view.
 getqrz captures JTDX QSO information sent by multicast.

@@ -48,8 +48,8 @@ def rcv_adif():
         
 		temp = sock.recv(MAX_BUFFER)
 		txt = str(temp, 'utf-8')
-		print(f"=========================\n")
-		print(f"input ADIF:\n{txt}")
+		print(f"---- input ADIF ----")
+		print("{txt}")
 
 		qsos = adif.read_from_string(txt)
 		print(f"\nQSOs:\n {qsos}\n")

@@ -43,6 +43,7 @@ import rcv_mc
 import signal
 import sys
 import os.path
+import datetime
 
 # If set to "1", the file will not be written
 DEBUG_seq = 0
@@ -63,8 +64,6 @@ adi_init = """<BAND:3>15m <STATION_CALLSIGN:6>XXXXXX <MY_GRIDSQUARE:6>XXXXxx <CA
 adifheader = """<ADIF_VER:5>2.2.7
 <ProgramID:6>getqrz
 <ProgramVersion:3>0.1
-<APP_getqrz_Created:23>2022/08/12 01:02:59 UTC
-<EOH>
 """
 
 args = sys.argv
@@ -159,6 +158,9 @@ def main():
 
 	#generate QSO ADIF
 	dat = adifheader
+	dt = datetime.datetime.utcnow()
+	dt = dt.strftime('%Y/%m/%d %H:%M:%S UTC')
+	dat = "<APP_getqrz_Created:" + str(len(dt)) + ">" + dt + "<EOH>\n"
 	dat = dat + rpladif
 	if fname != "" and name != "":
 		dat = dat + "<NAME:" + str((len(fname)+len(name)+1)) + ">"

@@ -160,7 +160,8 @@ def main():
 	dat = adifheader
 	dt = datetime.datetime.utcnow()
 	dt = dt.strftime('%Y/%m/%d %H:%M:%S UTC')
-	dat = "<APP_getqrz_Created:" + str(len(dt)) + ">" + dt + "<EOH>\n"
+	dat = dat + "<APP_getqrz_Created:" + str(len(dt)) + ">" + dt
+	dat = dat + "\n<EOH>\n"
 	dat = dat + rpladif
 	if fname != "" and name != "":
 		dat = dat + "<NAME:" + str((len(fname)+len(name)+1)) + ">"

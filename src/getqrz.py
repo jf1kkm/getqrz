@@ -26,7 +26,7 @@
 #{
 #  "name": "getqrz",
 #  "description": "Recreates QSO ADIF data with QRZ.com data base.",
-#  "author": "Shinji (kobie) Kobayashi <jf1kkm@gmail.com>",
+#  "author": "kobie <jf1kkm@gmail.com>",
 #  "license": "Apache-2.0",
 #  "repository": "https://github.com/jf1kkm/getqrz",
 #  "dependencies": {

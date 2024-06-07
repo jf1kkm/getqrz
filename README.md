@@ -7,7 +7,7 @@ Works with Python 3.6 and above.
 
 Special thanks to Andreas(DJ3EI), the developer of adif-io.
 
-## Overview
+##  Overview
 
 The following figure shows the overall view.
 getqrz captures JTDX QSO information sent by multicast.
@@ -16,16 +16,16 @@ JTLinker reads the updated file and transfers the QSO information to the specifi
 
 ![](img/rtupload.png)
 
-## Install
+##  Install
 
 Prepare a folder and extract adif.py, rcv\_mc.py and getqrz.py
 
-## Execution
+##  Execution
 
 Open a terminal and run with
 % ./getqrz.py
 
-## Settings
+##  Settings
 
 Set the following parameters to getqrz.py
 
